@@ -4,14 +4,11 @@ import com.skypro.home.model.Sock;
 import com.skypro.home.record.SockRecord;
 import com.skypro.home.repository.SockRepository;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-
-import static java.lang.Long.valueOf;
 
 @Service
 public class SockService {
@@ -24,6 +21,7 @@ public class SockService {
         this.sockRepository = sockRepository;
         this.mapper = mapper;
     }
+
 
     @Transactional
     public ResponseEntity<?> addSocks(SockRecord sockRecord) {
