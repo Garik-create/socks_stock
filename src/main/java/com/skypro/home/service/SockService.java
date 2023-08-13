@@ -1,56 +1,27 @@
 package com.skypro.home.service;
 
 import com.skypro.home.model.Sock;
-import com.skypro.home.model.User;
-import com.skypro.home.record.Role;
 import com.skypro.home.record.SockRecord;
 import com.skypro.home.repository.SockRepository;
-//import com.skypro.home.security.SecurityUser;
-import jakarta.annotation.PostConstruct;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-//import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-
-import static java.lang.Long.valueOf;
 
 @Service
 public class SockService {
 
     private final SockRepository sockRepository;
     private final SockMapperService mapper;
-    private final UserService userService;
-//    private final PasswordEncoder encoder;
-//    private final SecurityUser userDetails;
 
     public SockService(SockRepository sockRepository,
-                       SockMapperService mapper,
-                       UserService userService/*,
-                       PasswordEncoder encoder,
-                       SecurityUser userDetails*/) {
+                       SockMapperService mapper) {
         this.sockRepository = sockRepository;
         this.mapper = mapper;
-        this.userService = userService;
-//        this.encoder = encoder;
-//        this.userDetails = userDetails;
     }
 
-//    @PostConstruct
-//    @Transactional
-//    public void init() {
-//
-//        String userName = "dafault";
-//        if (!userService.existsByUsername(userName)) {
-//            User user = new User();
-//            user.setUserName(userName);
-//            user.setPassword(encoder.encode("12345"));
-//            user.setRole(Role.STOCKMAN);
-//            userService.save(user);
-//        }
-//    }
 
     @Transactional
     public ResponseEntity<?> addSocks(SockRecord sockRecord) {
